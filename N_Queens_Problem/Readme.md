@@ -57,4 +57,4 @@
     
    Од што тотално е $n+n(n-1)+...+n! = n! \times (1/n! + 1/(n-1)! + ... + 1) \approx e \times n!$ кое може да го запишеме како $O(n!)$
 
-   И сега по формулата $T(r) = (n-r) \times T(r+1)+n^2$ -> 
+   И сега по формулата $T(r) = (n-r) \times T(r+1)+n^2 \rightarrow T(O) = n^2 + n\times n^2 + n(n-1)\times n^2 + ... + n!\times n^2 = n^2\times (1 + n + n(n-1)+ ... + n!) = n^2\times e\times n!$ со ова добуваме дека $O(n!)$  
