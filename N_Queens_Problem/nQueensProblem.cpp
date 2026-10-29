@@ -1,10 +1,14 @@
 // code copied from geeks for geeks
 // https://www.geeksforgeeks.org/dsa/n-queen-problem-backtracking-3/
 
+#include <cstdint>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <vector>
 using namespace std;
 
+int64_t Interation = 0;
 // Function to check if it is safe to place
 int isSafe(vector<vector<int>>& mat, int row, int col) {
     int n = mat.size();
@@ -31,7 +35,7 @@ int isSafe(vector<vector<int>>& mat, int row, int col) {
 // Recursive function to place queens
 void placeQueens(int row, vector<vector<int>>& mat, vector<vector<int>>&result) {
     int n = mat.size();
-
+    Interation++;
     // base case: If all queens are placed
     if(row == n) {
         
@@ -77,13 +81,23 @@ vector<vector<int>> nQueen(int n) {
 }
 
 int main() {
-    int n = 4;
+    srand(time(0));
+
+    int n;
+    cin >> n;
+
+    clock_t start = clock();
     vector<vector<int>> result = nQueen(n);
-    for(auto &ans : result){
-        for(auto i: ans){
-            cout << i << " ";
-        }
-        cout << endl;
-    }
+    clock_t end = clock();
+
+    double elapsed = double(end - start) / CLOCKS_PER_SEC;
+    cout << "Sortiranjeto zavrsi za: " << elapsed << " sekundi.\n";
+    cout << "Iteration: " << Interation; 
+    // for(auto &ans : result){
+    //     for(auto i: ans){
+    //         cout << i << " ";
+    //     }
+    //     cout << endl;
+    // }
     return 0;
 }
